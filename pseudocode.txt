@@ -1,0 +1,35 @@
+   [1]
+[0][4][3]
+
+000		      002           022
+002 => [1] => 002 => [0] => 002
+001           001           001
+
+previousSteps = [1, 0]
+
+got: [3]
+
+check cell in got direction:
+if !outOfBounds:
+	if body:
+		if abs(got - last) == 2:	//!got 0 <-> 2; 1 <-> 3
+			here left 0
+			move got
+		else:
+			f###off
+	elif stone:
+		f###off
+	else:
+		move got
+else: 
+	f###off
+  
+int getCellType:
+	if *checkOutOfBounds*:
+		return -1
+	elif *checkingstones*:
+		return 1
+	elif *checkingBody*:
+		return 1
+	else:
+		return 0 
